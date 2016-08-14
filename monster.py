@@ -1,10 +1,23 @@
+import random
+
+COLORS = ['yellow', 'red', 'green', 'blue', 'purple']
+
+
 class Monster():
+    min_hit_points = 1
+    max_hit_points = 1
+    min_experience = 1
+    max_experience = 1
+    weapon = 'sword'
+    sound = 'roar'
 
     def __init__(self, **kwargs):
-        self.hit_point = kwargs.get('hit_point', 1)
-        self.color = kwargs.get('color', 'yellow')
-        self.weapon = kwargs.get('weapon', 'sword')
-        self.sound = kwargs.get('sound', 'roar')
+        self.hit_points = random.randint(self.min_hit_points, self.max_hit_points)
+        self.experience = random.randint(self.min_experience, self.max_experience)
+        self.colors = random.choice(COLORS)
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def battlecry(self):
         return self.sound.upper()
