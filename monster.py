@@ -19,8 +19,37 @@ class Monster():
         for key, value in kwargs.items():
             setattr(self, key, value)
 
+    def __str__(self):
+        return('{}, {} HP: {} XP: {}'.format(self.color.title(),
+                                             self.__class__.__name__,
+                                             self.hit_points,
+                                             self.experience)
+
+        )
+
     def battlecry(self):
         return self.sound.upper()
+
+class Goblin(Monster):
+    min_hit_points = 1
+    max_hit_points = 4
+    sound = 'squak'
+
+class Troll(Monster):
+    min_hit_points = 1
+    max_hit_points = 4
+    sound = 'heheheheh'
+
+class Goose(Monster):
+    min_hit_points = 3
+    max_hit_points = 9
+    sound = 'blarg'
+
+class Witch(Monster):
+    min_hit_points = 2
+    max_hit_points = 7
+    sound = 'eeeeee'
+    color = 'purple'
 
 class Store():
     open = 9
