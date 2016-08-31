@@ -21,7 +21,7 @@ class Monster(Combat):
             setattr(self, key, value)
 
     def __str__(self):
-        return('{}, {} HP: {} XP: {}'.format(self.color.title(),
+        return('{} {} HP: {} XP: {}'.format(self.colors.title(),
                                              self.__class__.__name__,
                                              self.hit_points,
                                              self.experience)
